@@ -57,7 +57,7 @@ pip install -r requirements.txt
 |--------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | **POST** `/api/auth/register/` | POST   | Register a new user.  
 Body JSON:
-```json
+json
 {
   "username": "jane",
   "email":    "jane@example.com",
@@ -65,19 +65,19 @@ Body JSON:
   "role":     "vendor",            # admin | vendor | customer
   "company_name": "Jane’s Shop"    # only if role == vendor
 }
-```                                                                                       | Public     |
+                                                                                                                                                                                                     | Public     |
 | **POST** `/api/token/`         | POST   | Obtain JWT access & refresh tokens.  
 Body JSON:
-```json
+json
 { "username": "jane", "password": "secret" }
-```                                                                                       | Public     |
+                                                                                     | Public     |
 | **POST** `/api/token/refresh/` | POST   | Refresh your access token.  
 Body JSON:
-```json
+json
 { "refresh": "<refresh_token>" }
-```                                                                                       | Public     |
+                                                                                      | Public     |
 
----
+
 
 ### Vendor Management (Read-Only)
 
@@ -116,7 +116,7 @@ Form-data: `name`, `price`, `description`, `image` (file). Vendor is inferred fr
 | **GET** `/api/orders/{id}/`       | GET     | Retrieve order `{id}`, including line-items (`product` + `quantity`).                                                                                                 | Same scoping as list orders                        |
 | **POST** `/api/orders/`           | POST    | Place a new order.  
 Body JSON:
-```json
+json
 {
   "items": [
     { "product": 3, "quantity": 2 },
